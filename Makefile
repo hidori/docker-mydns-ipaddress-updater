@@ -24,5 +24,6 @@ tag: build
 	docker run --rm hidori/semver -i patch ${shell cat ./version.txt} > ./version.txt
 	git add ./version.txt
 	git commit -m 'Updated version'
+	git push
 	git tag `cat ./version.txt`
 	git push --tags
