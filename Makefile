@@ -17,7 +17,7 @@ run:
 	docker run -it --rm -e ID=${ID} -e PW=${PW} -e INTERVAL=5m hidori/mydns-ipaddress-updater
 
 .PHONY: tag
-tag: build
+tag: rebuild
 	git checkout main
 	git fetch
 	git pull
