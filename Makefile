@@ -14,7 +14,7 @@ rmi:
 
 .PHONY: run
 run:
-	docker run -it --rm -e ID=${ID} -e PW=${PW} -e INTERVAL=5m hidori/mydns-ipaddress-updater
+	docker run -it --rm -e ID=${ID} -e PW=${PW} -e INTERVAL=5m ${IMAGE_NAME}
 
 .PHONY: version/patch
 version/patch: rebuild
