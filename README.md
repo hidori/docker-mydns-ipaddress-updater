@@ -5,7 +5,7 @@ Notify the IP address to MyDNS.jp
 ## USAGE
 
 ```bash
-docker build -f ./Dockerfile -t hidori/mydns-ipaddress-updater .
+docker pull hidori/mydns-ipaddress-updater:latest
 ```
 
 ## EXAMPLE
