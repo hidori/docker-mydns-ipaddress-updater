@@ -1,18 +1,22 @@
 IMAGE_NAME = hidori/mydns-ipaddress-updater
 
-.PHONY: clean build rebuild rmi run
+ID ?= YOUR_ID
+PW ?= YOUR_PW
+INTERVAL ?= 5m
+
+.PHONY: clean build rebuild run rmi
 
 clean:
 	rm -fr ./tmp
 
 build:
-	docker build -f ./Dockerfile -t ${IMAGE_NAME} .
+	docker build -t ${IMAGE_NAME} .
 
 rebuild:
-	docker build -f ./Dockerfile -t ${IMAGE_NAME} --no-cache .
+	docker build --no-cache -t ${IMAGE_NAME} .
+
+run:
+	docker run --rm -e ID=${ID} -e PW=${PW} -e INTERVAL=${INTERVAL} ${IMAGE_NAME}
 
 rmi:
 	docker rmi -f ${IMAGE_NAME}
-
-run:
-	docker run -it --rm -e ID=${ID} -e PW=${PW} -e INTERVAL=5m ${IMAGE_NAME}
